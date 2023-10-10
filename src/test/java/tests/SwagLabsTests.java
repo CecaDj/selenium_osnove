@@ -166,7 +166,16 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyIfTheCartIconIsEnabled(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
 
+        topNav.clickOnCartButton();
+        Assert.assertTrue(topNav.getCartLink().isEnabled(), "The cart icon should be enabled.");
+
+    }
 
 
 }
