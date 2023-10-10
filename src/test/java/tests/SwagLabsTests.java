@@ -109,6 +109,21 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyTheTitlePage(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        Assert.assertEquals(driver.getTitle(), "Swag Labs",
+                "Page title should be Swag Labs.");
+
+    }
+
+
 
 
 
