@@ -3,6 +3,8 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+
 public class SwagLabsTests extends BasicTest{
 
     @Test
@@ -233,6 +235,28 @@ public class SwagLabsTests extends BasicTest{
         topNav.clickOnMenuButton();
         Assert.assertEquals(leftNav.getNumberOfMenuOptions(), 4,
                 "There should be 4 options in menu.");
+    }
+
+    @Test
+    public void verifyTheSpellingOfAllOptionsInMenu(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+        leftNav.waitForMenuToBeVisible();
+
+        ArrayList<String> text = new ArrayList<>();
+        text.add("All Items");
+        text.add("About");
+        text.add("Logout");
+        text.add("Reset App State");
+
+        for (int i = 0; i < text.size(); i++) {
+            Assert.assertEquals(leftNav.getMenuOptions().get(i).getAccessibleName(), text.get(i),
+                    "Spelling of menu options should be correct.");
+        }
     }
 
 
