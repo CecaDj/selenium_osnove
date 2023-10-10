@@ -212,6 +212,16 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyTheSubHeaderTitle(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        Assert.assertEquals(subHeader.getSubHeaderTitle(), "Your Cart",
+                "Sub-header title should be valid");
+    }
 
 
 
