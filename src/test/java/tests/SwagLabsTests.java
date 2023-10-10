@@ -135,7 +135,15 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyIfTheCartIconIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
 
+        topNav.clickOnCartButton();
+        Assert.assertTrue(topNav.getCartLink().isDisplayed(), "Cart icon should be presented.");
+    }
 
 
 
