@@ -299,8 +299,23 @@ public class SwagLabsTests extends BasicTest{
         topNav.clickOnMenuButton();
 
         leftNav.clickOnMenuOption(2);
-        Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/",
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl,
                 "User should be redirected to log in page.");
+
+    }
+
+    @Test
+    public void verifyIfResetAppStateIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        leftNav.clickOnMenuOption(3);
+        Assert.assertEquals(topNav.getCartText(), "0",
+                "The state of web app should be reseted.");
 
     }
 
