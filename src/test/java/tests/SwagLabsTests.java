@@ -274,6 +274,21 @@ public class SwagLabsTests extends BasicTest{
                  "User should be redirected to inventory page.");
 
     }
+    @Test
+    public void verifyIfAboutOptionIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        leftNav.clickOnMenuOption(1);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/",
+                "User should be redirected to sauce labs website.");
+
+    }
+
 
 
 
