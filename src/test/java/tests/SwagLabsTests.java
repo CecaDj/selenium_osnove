@@ -289,6 +289,22 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyIfLogoutOptionIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        leftNav.clickOnMenuOption(2);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://saucelabs.com/",
+                "User should be redirected to log in page.");
+
+    }
+
+
 
 
 
