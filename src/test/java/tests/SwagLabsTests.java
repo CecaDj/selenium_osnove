@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -258,6 +259,23 @@ public class SwagLabsTests extends BasicTest{
                     "Spelling of menu options should be correct.");
         }
     }
+
+    @Test
+    public void verifyIfAllItemsOptionIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        leftNav.clickOnMenuOption(0);
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "inventory.html",
+                 "User should be redirected to inventory page.");
+
+    }
+
+
 
 
 
