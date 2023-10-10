@@ -97,6 +97,18 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyUrl(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "cart.html",
+                "User should be redirected to Cart page.");
+
+    }
+
 
 
 
