@@ -223,6 +223,19 @@ public class SwagLabsTests extends BasicTest{
                 "Sub-header title should be valid");
     }
 
+    @Test
+    public void verifyTheTotalNumberOfMenuOptions(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+        Assert.assertEquals(leftNav.getNumberOfMenuOptions(), 4,
+                "There should be 4 options in menu.");
+    }
+
+
 
 
 
