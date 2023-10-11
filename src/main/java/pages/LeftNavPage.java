@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class LeftNavPage extends BasicPage{
     public LeftNavPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -13,8 +15,9 @@ public class LeftNavPage extends BasicPage{
 
 
     public void waitForMenuToBeVisible() {
-        wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("bm-menu-wrap")));
+        wait
+                .withMessage("Left navigation menu should be visible.")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("bm-menu-wrap")));
 
     }
 
@@ -29,5 +32,23 @@ public class LeftNavPage extends BasicPage{
     public void clickOnLogoutLink() {
         getLogoutLink().click();
     }
+
+    public List<WebElement> getMenuOptions(){
+        List<WebElement> options = driver.findElements(By.cssSelector(".bm-item-list > a"));
+        return options;
+    }
+    public int getNumberOfMenuOptions(){
+       return getMenuOptions().size();
+    }
+
+    public void clickOnMenuOption(int index){
+        getMenuOptions().get(index).click();
+    }
+
+    public WebElement getEkisButton(){
+        return driver.findElement(By.id("react-burger-cross-btn"));
+    }
+
+
 
 }

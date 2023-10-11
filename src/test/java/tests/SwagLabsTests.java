@@ -268,6 +268,7 @@ public class SwagLabsTests extends BasicTest{
 
         topNav.clickOnCartButton();
         topNav.clickOnMenuButton();
+        leftNav.waitForMenuToBeVisible();
 
         leftNav.clickOnMenuOption(0);
         Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "inventory.html",
@@ -318,6 +319,20 @@ public class SwagLabsTests extends BasicTest{
                 "The state of web app should be reseted.");
 
     }
+
+    @Test
+    public void verifyIfTheEkisButtonIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        Assert.assertTrue(leftNav.getEkisButton().isDisplayed(),
+                "Ekis button should be visible.");
+    }
+
 
 
 
