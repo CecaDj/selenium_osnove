@@ -514,6 +514,18 @@ public class SwagLabsTests extends BasicTest{
                 "User should be redirected to checkout page.");
     }
 
+    @Test
+    public void verifyIfTheTwitterButtonIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+
+        Assert.assertTrue(footer.getSingleSocial(0).isDisplayed(), "Twitter icon should be visible");
+    }
+
+
 
 
 
