@@ -573,6 +573,19 @@ public class SwagLabsTests extends BasicTest{
                "User should be redirected to sauce labs facebook account.");
     }
 
+    @Test
+    public void verifyIfTheLinkedinButtonIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        footer.clickOnSocial(2);
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.linkedin.com/company/sauce-labs/",
+                "User should be redirected to sauce labs linkedin account.");
+    }
+
 
 
 
