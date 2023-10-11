@@ -536,6 +536,18 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertTrue(footer.getSingleSocial(1).isDisplayed(), "Facebook icon should be visible");
     }
 
+    @Test
+    public void verifyIfTheLinkedinButtonIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+
+        Assert.assertTrue(footer.getSingleSocial(2).isDisplayed(), "Linkedin icon should be visible");
+    }
+
+
 
 
 
