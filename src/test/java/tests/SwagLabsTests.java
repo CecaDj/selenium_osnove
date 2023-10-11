@@ -406,6 +406,19 @@ public class SwagLabsTests extends BasicTest{
                         itemList.getItemsQuantity(0)));
     }
 
+    @Test
+    public void verifyIfTheItemsTitleIsClickable(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        itemList.clickOnItemTitle(0);
+    }
+
+
 
 
 
