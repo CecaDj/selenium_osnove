@@ -460,6 +460,18 @@ public class SwagLabsTests extends BasicTest{
 
     }
 
+    @Test
+    public void verifyIfTheContinueShoppingButtonIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        Assert.assertTrue(itemList.getContinueShoppingButton().isDisplayed(),
+                "Continue shopping button should be visible.");
+    }
 
 
 

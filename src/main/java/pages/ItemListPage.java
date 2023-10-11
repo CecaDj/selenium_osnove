@@ -44,4 +44,8 @@ public class ItemListPage extends BasicPage{
     public void clickOnRemoveButton(int index){
         getSingleItem(index).findElement(By.tagName("button")).click();
     }
+
+    public WebElement getContinueShoppingButton(){
+        return driver.findElement(By.id("continue-shopping"));
+    }
 }
