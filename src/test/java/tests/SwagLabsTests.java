@@ -473,6 +473,20 @@ public class SwagLabsTests extends BasicTest{
                 "Continue shopping button should be visible.");
     }
 
+    @Test
+    public void verifyIfTheContinueShoppingButtonIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+        itemList.clickOnContinueShoppingButton();
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("inventory.html"),
+                "User should be redirected to the inventory page");
+    }
+
 
 
 
