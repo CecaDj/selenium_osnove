@@ -391,6 +391,21 @@ public class SwagLabsTests extends BasicTest{
                         itemList.getItemsDescription(0)));
 
     }
+    @Test
+    public void verifyIfTheQuantityOfItemIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        wait
+                .withMessage("Item's quantity should be visible.")
+                .until(ExpectedConditions.textToBePresentInElement(itemList.getSingleItem(0),
+                        itemList.getItemsQuantity(0)));
+    }
+
 
 
 

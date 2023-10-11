@@ -28,4 +28,8 @@ public class ItemListPage extends BasicPage{
     public String getItemsDescription(int index){
         return getSingleItem(index).findElement(By.className("inventory_item_desc")).getText();
     }
+
+    public String getItemsQuantity(int index){
+        return getSingleItem(index).findElement(By.className("cart_quantity")).getText();
+    }
 }
