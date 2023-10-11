@@ -9,10 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.InventoryPage;
-import pages.LeftNavPage;
-import pages.LoginPage;
-import pages.TopNavPage;
+import pages.*;
 
 import java.time.Duration;
 
@@ -28,6 +25,8 @@ public abstract class BasicTest {
     protected InventoryPage inventory;
 
     protected TopNavPage topNav;
+    protected SubHeaderPage subHeader;
+    protected ItemListPage itemList;
 
     @BeforeClass
     public void setup(){
@@ -35,13 +34,17 @@ public abstract class BasicTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         baseUrl = "https://www.saucedemo.com/";
-        login = new LoginPage(driver,wait);
         username = "standard_user";
         password = "secret_sauce";
+
+        login = new LoginPage(driver,wait);
         leftNav = new LeftNavPage(driver,wait);
         inventory = new InventoryPage(driver,wait);
         topNav = new TopNavPage(driver,wait);
+        subHeader = new SubHeaderPage(driver,wait);
+        itemList = new ItemListPage(driver,wait);
     }
 
     @BeforeMethod
@@ -54,7 +57,6 @@ public abstract class BasicTest {
         driver.manage().deleteAllCookies();
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
     }
-
 
     @AfterClass
     public void quit(){

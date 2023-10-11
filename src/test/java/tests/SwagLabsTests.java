@@ -347,6 +347,20 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertFalse(leftNav.getEkisButton().isDisplayed(), "Left menu navigation should be closed.");
     }
 
+    @Test
+    public void verifyIfTheItemAddedIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        Assert.assertTrue(itemList.getSingleItem(0).isDisplayed(), "Added item should be visible.");
+
+    }
+
+
 
 
 
