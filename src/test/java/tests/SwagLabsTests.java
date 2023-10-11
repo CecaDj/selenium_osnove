@@ -547,6 +547,19 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertTrue(footer.getSingleSocial(2).isDisplayed(), "Linkedin icon should be visible");
     }
 
+    @Test
+    public void verifyIfTheTwitterButtonIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        footer.clickOnSocial(0);
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://twitter.com/saucelabs",
+                "User should be redirected to sauce labs twitter account.");
+    }
+
 
 
 
