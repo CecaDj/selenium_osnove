@@ -586,6 +586,20 @@ public class SwagLabsTests extends BasicTest{
                 "User should be redirected to sauce labs linkedin account.");
     }
 
+    @Test
+    public void verifyTheCopyrightNoticeMessage(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+
+        Assert.assertEquals(footer.getFooterCopyrightText(),
+                        "© 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy",
+                "Copyright notice message should be valid.");
+    }
+
+
 
 
 
