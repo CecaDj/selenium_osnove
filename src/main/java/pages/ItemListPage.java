@@ -20,4 +20,8 @@ public class ItemListPage extends BasicPage{
     public WebElement getSingleItem(int index){
         return getItemList().get(index);
     }
+
+    public String getItemsTitle(int index){
+        return getSingleItem(index).findElement(By.tagName("a")).getText();
+    }
 }

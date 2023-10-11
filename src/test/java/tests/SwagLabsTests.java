@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -358,6 +359,21 @@ public class SwagLabsTests extends BasicTest{
 
         Assert.assertTrue(itemList.getSingleItem(0).isDisplayed(), "Added item should be visible.");
 
+    }
+
+    @Test
+    public void verifyIfTheItemsTitleIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        wait
+                .withMessage("Item's title should be visible.")
+                .until(ExpectedConditions.textToBePresentInElement(itemList.getSingleItem(0),
+                itemList.getItemsTitle(0)));
     }
 
 
