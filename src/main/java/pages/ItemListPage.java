@@ -56,4 +56,8 @@ public class ItemListPage extends BasicPage{
     public WebElement getCheckoutButton(){
         return driver.findElement(By.id("checkout"));
     }
+
+    public void clickOnCheckoutButton(){
+        getCheckoutButton().click();
+    }
 }

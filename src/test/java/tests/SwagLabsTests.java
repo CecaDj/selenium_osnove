@@ -499,6 +499,21 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertTrue(itemList.getCheckoutButton().isDisplayed(), "Checkout button should be visible.");
     }
 
+    @Test
+    public void verifyIfTheCheckoutButtonIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        itemList.clickOnCheckoutButton();
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("checkout-step-one.html"),
+                "User should be redirected to checkout page.");
+    }
+
 
 
 
