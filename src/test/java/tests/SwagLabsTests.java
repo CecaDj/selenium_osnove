@@ -445,6 +445,23 @@ public class SwagLabsTests extends BasicTest{
                 "Remove button should be visible.");
     }
 
+    @Test
+    public void verifyIfTheRemoveButtonIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+        itemList.clickOnRemoveButton(0);
+
+        Assert.assertTrue(itemList.getItemList().isEmpty(),
+                "Item should be removed from the cart.");
+
+    }
+
+
+
 
 
 
