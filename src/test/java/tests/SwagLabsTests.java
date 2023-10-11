@@ -333,6 +333,21 @@ public class SwagLabsTests extends BasicTest{
                 "Ekis button should be visible.");
     }
 
+    @Test
+    public void verifyIfTheEkisButtonsIsWorking(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        topNav.clickOnCartButton();
+        topNav.clickOnMenuButton();
+
+        leftNav.clickOnEkisButton();
+
+        Assert.assertFalse(leftNav.getEkisButton().isDisplayed(), "Left menu navigation should be closed.");
+    }
+
+
 
 
 

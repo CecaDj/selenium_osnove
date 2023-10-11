@@ -49,6 +49,10 @@ public class LeftNavPage extends BasicPage{
         return driver.findElement(By.id("react-burger-cross-btn"));
     }
 
+    public void clickOnEkisButton(){
+        getEkisButton().click();
+    }
+
 
 
 }
