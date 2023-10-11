@@ -376,6 +376,24 @@ public class SwagLabsTests extends BasicTest{
                 itemList.getItemsTitle(0)));
     }
 
+    @Test
+    public void verifyIfTheItemsDescriptionIsPresented(){
+        login.clearAndTypeUsername(username);
+        login.clearAndTypePassword(password);
+        login.clickOnLoginButton();
+
+        inventory.clickOnAddToCartButton();
+        topNav.clickOnCartButton();
+
+        wait
+                .withMessage("Item's description should be visible.")
+                .until(ExpectedConditions.textToBePresentInElement(itemList.getSingleItem(0),
+                        itemList.getItemsDescription(0)));
+
+    }
+
+
+
 
 
 
